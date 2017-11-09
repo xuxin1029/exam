@@ -5,6 +5,6 @@ $(function(){
     //模拟点击
     $('.baseUI>li:eq(0)>ul>li:eq(0)').trigger('click');
     $('.baseUI>li:eq(1)>ul>li:eq(1)').on('click',function(){
-        $('.right').load('/pages/手动组卷.html');
+        $('.right').load('/pages/hand.html');
     })
 }) 

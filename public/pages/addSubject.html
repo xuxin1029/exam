@@ -197,7 +197,9 @@
                 return false;
             }
         });
-        param = {
+      $.ajax('exam/manager/saveSubject',{
+          method:"post",
+          data:{
             'stem': subject_stem,
             'analysis': subject_analysis,
             'answer': subject_answer,
@@ -207,9 +209,13 @@
             'topic.id': topic_id,
             'choiceContent[]': choice_arr,
 	 	    'choiceCorrect[]': choiceCorrect_ids,
-        }
-        $.post('exam/manager/saveSubject',param,function(data){
-            console.log('保存成功');
-        })
+          },
+          success:function(data){
+              console.log('保存成功')
+          }
+      }
+          
+       
+      )
     }
 </script>
