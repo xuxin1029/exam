@@ -140,7 +140,10 @@
 					case 3:topic_id = $(item).attr('id');break;
 				}
 			});
-		//发送到后台，后台根据需要将题目展示出来
+
+	
+
+			//发送到后台，后台根据需要将题目展示出来
 			$.ajax('exam/manager/getAllSubjects',{method:"post",
 			data:{
 				'type':type_id,
