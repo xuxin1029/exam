@@ -122,7 +122,7 @@
 		})
 
 
-		//给所有的a绑定一个click事件，并拿到选中的id，发送到后台
+		//给所有的a绑定一个click事件，并拿到选中的id
 		$(".tablea").off("click",'a');
 		$(".tablea").on("click",'a',function(){
 			$(this).addClass('active3').siblings().removeClass('active3');
@@ -140,16 +140,18 @@
 					case 3:topic_id = $(item).attr('id');break;
 				}
 			});
-			var param = {
+			//发送到后台，后台根据需要将题目展示出来
+			$.ajax('exam/manager/getAllSubjects',{method:"post",
+			data:{
 				'type':type_id,
 				'level':level_id,
 				'direct':direct_id,
 				'topic':topic_id
-			}
-			console.log(param);
-			$.post('exam/manager/getAllSubjects',param,function(data){
+			},
+			success:function(data){
 				//console.log(data);
 				showDate(data);
+			}
 			})
 		})
 		
